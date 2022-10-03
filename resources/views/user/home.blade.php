@@ -87,7 +87,6 @@
             @auth
             <x-app-layout>
             </x-app-layout>
-
             @else
 
             <li class="nav-item">
