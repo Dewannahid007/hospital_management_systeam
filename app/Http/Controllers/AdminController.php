@@ -32,23 +32,5 @@ class AdminController extends Controller
 
 
     }
-    public function appointment(Request $request){
-        $data= new Appointment();
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->date= $request->date;
-        $data->phone= $request->phone;
-        $data->message = $request->message;
-        $data->doctor = $request->doctor;
-        $data->status ='In progress';
-         if(Auth::id()){
-
-            $data->user_id=Auth::user()->id;
-
-         }
-         $data->save();
-
-         return redirect()->back()->with('message','Appointment request Successful. We will contact with you soon');
-
-    }
+    
 }

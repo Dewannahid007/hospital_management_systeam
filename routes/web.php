@@ -30,4 +30,7 @@ Route::middleware([
 });
 Route::get('/add_doctor_view',[AdminController::class,'addview']);
 Route::post('/upload_doctor',[AdminController::class,'upload_doctor']);
-Route::post('/appointment',[AdminController::class,'appointment']);
+Route::post('/appointment',[HomeController::class,'appointment']);
+Route::get('/myappointment',[HomeController::class,'myappointment']);
+
+Route::get('/cancel_appoint/{id}',[HomeController::class,'cancel_appoint']);
