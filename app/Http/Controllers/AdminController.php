@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -29,7 +31,24 @@ class AdminController extends Controller
         return redirect()->back()->with('message','Doctor Add Successfully');
 
 
+    }
+    public function appointment(Request $request){
+        $data= new Appointment();
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->date= $request->date;
+        $data->phone= $request->phone;
+        $data->message = $request->message;
+        $data->doctor = $request->doctor;
+        $data->status ='In progress';
+         if(Auth::id()){
 
+            $data->user_id=Auth::user()->id;
+
+         }
+         $data->save();
+
+         return redirect()->back()->with('message','Appointment request Successful. We will contact with you soon');
 
     }
 }
