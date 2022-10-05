@@ -69,7 +69,7 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="index.html">Home</a>
-            </li> 
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About Us</a>
             </li>
@@ -82,13 +82,10 @@
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
-
             @if(Route::has('login'))
             @auth
-            <li class="nav-item">
-              <a class="nav-link" style="background-color:greenyellow"  href="{{url('myappointment')}}">My Appointment</a>
-            </li>
             <x-app-layout>
+
             </x-app-layout>
             @else
 
@@ -105,14 +102,6 @@
       </div> <!-- .container -->
     </nav>
   </header>
-  @if(session()->has('message'))
-  <div class="alert alert-success">
-    <button type="button" class="close" data-dismiss="alert">X</button>
-    {{session()->get('message')}}
-
-  </div>
-  @endif
-
 
   <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg);">
     <div class="hero-section">
@@ -175,14 +164,28 @@
     </div> <!-- .bg-light -->
   </div> <!-- .bg-light -->
 
-  @include('user.doctor')
+@include('user.doctor')
+  @include('user.latest') <!-- .page-section -->
 
-
-  @include('user.latest')
   @include('user.appointment')
-   <!-- .page-section -->
+  <!-- .page-section -->
 
-
+  <div class="page-section banner-home bg-image" style="background-image: url(../assets/img/banner-pattern.svg);">
+    <div class="container py-5 py-lg-0">
+      <div class="row align-items-center">
+        <div class="col-lg-4 wow zoomIn">
+          <div class="img-banner d-none d-lg-block">
+            <img src="../assets/img/mobile_app.png" alt="">
+          </div>
+        </div>
+        <div class="col-lg-8 wow fadeInRight">
+          <h1 class="font-weight-normal mb-3">Get easy access of all features using One Health Application</h1>
+          <a href="#"><img src="../assets/img/google_play.svg" alt=""></a>
+          <a href="#" class="ml-2"><img src="../assets/img/app_store.svg" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div> <!-- .banner-home -->
 
   <footer class="page-footer">
     <div class="container">

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Laravel\Jetstream\Rules\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +40,10 @@ Route::get('/showappointment',[AdminController::class,'showappointment']);
 Route::get('/approved/{id}',[AdminController::class,'approved']);
 Route::get('/canceled/{id}',[AdminController::class,'canceled']);
 
+Route::get('/showdoctor',[AdminController::class,'showdoctor']);
+
+Route::get('/update_doctor/{id}',[AdminController::class,'update_doctor']);
+Route::get('/deleted/{id}',[AdminController::class,'deleted']);
+
+Route::post('/edit_doctor/{id}',[AdminController::class,'edit_doctor']);
 

@@ -671,3 +671,5 @@
           </footer>
           <!-- partial -->
         </div>
+        </div>
+         </div>

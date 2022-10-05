@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/public">
     <style type="text/css">
         label{
         display: inline-block;
@@ -30,37 +31,39 @@
  
         </div>
         @endif
-            <form action="{{url('upload_doctor')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('edit_doctor',$data->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div style="padding: 15px;">
                     <label>Doctor Name: </label>
-                    <input type="text" style="color: black;" name="name" placeholder="Write the Name" required >
+                    <input type="text" style="color: black;" name="name" value="{{$data->name}}">
                 </div>
                 <div style="padding: 15px;">
                     <label>Phone Number: </label>
-                    <input type="number" style="color: black;" name="number" placeholder="Write the Number" required >
+                    <input type="number" style="color: black;" name="number" value="{{$data->phone}}">
                 </div>
                 <div style="padding: 15px;">
                     <label>Speciality </label>
-                    <select name="speciality" style="color:black ; width:200px; " required>
-                        <option value="Skin">Skin</option>
-                        <option value="Heart">Heart</option>
-                        <option value="Dental">Dental</option>
-                        <option value="Eye">Eye</option>
-                        <option value="Nose">Nose</option>
-                    </select>
+                    <input type="text" style="color: black;" name="speciality" value="{{$data->speciality}}">
+
+
+                    
                 </div>
                 <div style="padding: 15px;">
                     <label>Room No: </label>
-                    <input type="number" style="color: black;" name="room" placeholder="Write the room number" required >
+                    <input type="number" style="color: black;" name="room" value="{{$data->room}}">
                 </div>
 
                 <div style="padding: 15px;">
-                    <label>Doctor Image: </label>
-                    <input type="file" name="image" required>
+                    <label>Old Image: </label>
+                    <img height="150px" width="150px" src="doctor_image/{{$data->image}}">
+                </div>
+                
+                <div style="padding: 15px;">
+                <label>Change Image</label>
+                <input type="file" name="image">
                 </div>
                 <div style="padding: 15px;">
-                <input type="submit" class="btn btn-success">
+                <input type="submit" value="Update" class="btn btn-success">
                 </div>
             </form>
 
