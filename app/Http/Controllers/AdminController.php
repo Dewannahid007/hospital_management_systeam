@@ -29,7 +29,31 @@ class AdminController extends Controller
 
         $doctor->save();
         return redirect()->back()->with('message','Doctor Add Successfully');
+    }
+    public function showappointment(){
+        $data =Appointment::all();
 
+
+        return view('admin.showappointment',['datas'=>$data]);
+    }
+    public function approved($id){
+        $data=Appointment::find($id);
+        $data->status ='approved';
+        $data->save();
+
+        return redirect()->back();
+
+
+    }
+    public function canceled($id){
+        $data=Appointment::find($id);
+        $data->status='canceled';
+        $data->save();
+
+        return redirect()->back();
+        
+
+        
 
     }
     

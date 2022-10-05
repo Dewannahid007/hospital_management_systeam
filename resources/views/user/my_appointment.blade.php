@@ -122,7 +122,7 @@
             <td style="padding: 10px;   color:white;">{{$appoint->date}}</td>
             <td style="padding: 10px;  color:white;" >{{$appoint->message}}</td>
             <td style="padding: 10px;  color:white;" >{{$appoint->status}}</td>
-            <td><a class="btn btn-danger" href="{{url('cancel_appoint',$appoint->id)}}">Cancel</a></td>
+            <td><a class="btn btn-danger" onclick="return confirm('Are you Sure')" href="{{url('cancel_appoint',$appoint->id)}}">Cancel</a></td>
 
 
         </tr>
